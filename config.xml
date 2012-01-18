@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>banamexgateway</name>
+	<displayName><![CDATA[Banamex TNS]]></displayName>
+	<version><![CDATA[1.0]]></version>
+	<description><![CDATA[Implementaci&oacute;n de pago mediante el banco Banamex]]></description>
+	<author><![CDATA[Enrique Chavez]]></author>
+	<tab><![CDATA[payments_gateways]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>
