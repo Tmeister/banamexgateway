@@ -68,6 +68,7 @@
 	$vpc_TransactionNo   = Tools::getValue('vpc_TransactionNo', 0);
 	$vpc_TxnResponseCode = Tools::getValue('vpc_TxnResponseCode', 0);
 	$vpc_Amount          = intval( Tools::getValue('vpc_Amount', 0) ) / 100;
+	$vpc_AuthorizeId     = Tools::getValue('vpc_AuthorizeId', 0);
 	$txnResponseCodeDesc = getResultDescription($vpc_TxnResponseCode);
 
 	/**************************************************************************
@@ -76,7 +77,7 @@
 
 	if( $vpc_TxnResponseCode === '0' ){
 		$extra = array( 'vpc_TransactionNo' => $vpc_TransactionNo );
-		$banamex->validateOrder($id_cart, 2, $vpc_Amount, 'Banamex' );
+		$banamex->validateOrder($id_cart, 2, $vpc_Amount, 'Banamex', '<br />Codigo de autorización Banamex: <span style="color:#3C8534">'.$vpc_AuthorizeId."</span><br>", array('{transaction_id}' => $vpc_AuthorizeId));
 		$payment_correct = 'ok';	
 	}
 
@@ -87,9 +88,10 @@
 
 	$smarty->assign(
 		array(
-			'status' => $payment_correct, 
-			'this_path' => __PS_BASE_URI__, 
-			'message' => $txnResponseCodeDesc
+			'status'         => $payment_correct, 
+			'this_path'      => __PS_BASE_URI__, 
+			'message'        => $txnResponseCodeDesc,
+			'transaction_id' => $vpc_AuthorizeId
 		)
 	);
 

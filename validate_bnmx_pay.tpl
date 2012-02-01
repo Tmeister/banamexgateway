@@ -8,7 +8,10 @@
 	<table width="100%" border="0" cellspacing="8">
 		<tr>
 			<td><img src="{$this_path}modules/banamexgateway/pago_correcto.jpg" width="300" height="250" alt="" /></td>
-		    <td><h3>{l s='Su compra se ha realizado correctamente, ahora puede descargar su archivo desde su historial.' mod='bnmx'}</h3></td>
+		    <td>
+		    	<h3>{l s='Su compra se ha realizado correctamente, ahora puede descargar su archivo desde su historial.' mod='bnmx'}</h3>
+		    	<h3>{l s='Codigo de Autorización:'} <span style="color:#3C8534">{$transaction_id}<span></h3>
+		    </td>
 		</tr>
 	</table>
 	<ul class="footer_links">
